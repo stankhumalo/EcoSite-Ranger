@@ -10,7 +10,7 @@ A mobile-first React Native (Expo) field reporting application designed for park
 - **Persistent On-Device CRUD (`@react-native-async-storage/async-storage`):** Full **Create, Read, Update, and Delete** support for site reports that saves data during app restarts.
 - **Connection Monitoring & JSON Sync (`@react-native-community/netinfo`):** Real-time network detection paired with a manual **Offline Mode** simulation toggle, queuing reports locally as `Pending` and syncing JSON payloads via `fetch()` when online.
 
-##Local Setup
+#Local Setup
 1. Node.js (v18+) and the **Expo Go** app installed on an iOS or Android device.
 2. **Clone the repository:**
    ```bash
