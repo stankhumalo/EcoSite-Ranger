@@ -9,7 +9,7 @@ export function useLocation() {
   const geoFindMe = async () => {
     setLoadingLocation(true);
     try {
-      // 1. Check if device Location Services are switched on at all
+      // check if device location services are switched on at all
       const servicesEnabled = await Location.hasServicesEnabledAsync();
       if (!servicesEnabled) {
         Alert.alert(
@@ -26,7 +26,7 @@ export function useLocation() {
         return null;
       }
 
-      // 2. Request foreground permission directly
+      // request  permission directly
       const { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
         Alert.alert(
@@ -47,7 +47,7 @@ export function useLocation() {
         return null;
       }
 
-      // 3. Try fresh GPS fix with a 6-second timeout, falling back to last known position indoors
+      //fresh GPS fix with a 6-second timeout, falling back to last known position indoors
       let position = null;
       try {
         position = await Promise.race([

@@ -1,10 +1,25 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity, Linking, StyleSheet } from 'react-native';
+import { View, Text, Image, TouchableOpacity, Linking, Alert, StyleSheet } from 'react-native';
 import { sendIncidentSms } from '../utils/sendIncidentSms';
 
 export default function ReportCard({ report, onToggleStatus, onEdit, onDelete }) {
   const isResolved = report.status === 'Resolved';
   const isSynced = report.syncStatus === 'Synced';
+
+  const confirmDelete = () => {
+    Alert.alert(
+      'Delete Field Log',
+      `Are you sure you want to permanently delete "${report.title}"?`,
+      [
+        { text: 'Cancel', style: 'cancel' },
+        {
+          text: 'Delete',
+          style: 'destructive',
+          onPress: () => onDelete(report.id),
+        },
+      ]
+    );
+  };
 
   return (
     <View style={[styles.card, isResolved && styles.cardResolved]}>

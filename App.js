@@ -17,12 +17,11 @@ import { syncReportsToServer } from './src/utils/syncService';
 import ReportForm from './src/components/ReportForm';
 import ReportCard from './src/components/ReportCard';
 
-// Mirrors your UWS lab's FILTER_MAP pattern for clean, declarative Read filtering
+//  FILTER_MAP pattern for clean filtering
 const FILTER_MAP = {
   All: () => true,
   Open: (report) => report.status === 'Open',
   Resolved: (report) => report.status === 'Resolved',
-  Saved: (report) => Boolean(report.id), // All persisted AsyncStorage records (or swap to: (r) => r.syncStatus === 'Synced')
 };
 
 const FILTER_NAMES = Object.keys(FILTER_MAP);
@@ -162,7 +161,7 @@ export default function App() {
           onCancelEdit={() => setEditingReport(null)}
         />
 
-        {/* Filter Bar (All / Open / Resolved / Saved) */}
+        {/* Filter Bar (All / Open / Resolved ) */}
         <View style={styles.filterHeader}>
           <Text style={styles.sectionTitle}>
             Field Logs ({filteredReports.length} of {reports.length})

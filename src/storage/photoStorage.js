@@ -1,3 +1,4 @@
+//expo file system improt
 import * as FileSystem from 'expo-file-system';
 
 const PHOTO_DIR = `${FileSystem.documentDirectory}ecosite_photos/`;

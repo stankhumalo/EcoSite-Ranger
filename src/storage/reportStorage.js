@@ -13,7 +13,7 @@ export const getReports = async () => {
   }
 };
 
-// CREATE: Add a new report and persist to storage
+// CREATE: Add a new report and add to storage
 export const createReport = async (newReportData) => {
   try {
     const existing = await getReports();
@@ -33,7 +33,7 @@ export const createReport = async (newReportData) => {
   }
 };
 
-// UPDATE: Edit an existing report (e.g., toggle Open/Resolved or edit notes)
+// UPDATE: Edit an existing report (e.g.,  Open/Resolved or edit notes)
 export const updateReport = async (id, updates) => {
   try {
     const existing = await getReports();
